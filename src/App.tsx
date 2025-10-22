@@ -1,5 +1,6 @@
 import { useState } from "react"
-import ListItem from "./ListItem"
+import ListItem from "./assets/components/ListItem"
+import AddTask from "./assets/components/AddTask"
 
 function App() {
   const [tasks, setTasks] = useState([{
@@ -25,6 +26,7 @@ function App() {
           </div>
         </div>
         {/* end of buttons */}
+        <AddTask />
         <div className="bg-slate-300 w-full rounded-lg mt-4 px-8 py-6">
           {tasks.map((task) => (
           <ListItem key={task.id} task={task}/>
