@@ -9,8 +9,18 @@ function App() {
     completed: false,
     createdOn: new Date()
   }])
+console.log(tasks)
+  const AddNewTask = (taskDetails) => {
+    const newTask = {
+      id: tasks.length + 1,
+      task: taskDetails,
+      completed: false,
+      createdOn: new Date()
+    }
+    setTasks([...tasks, newTask])
+  }
 
-  return (
+  return (  
     <div className="h-screen w-screen flex justify-center bg-stone-100">
       <div className="flex flex-col items-center m-24 w-4xl">
         <div className="text-5xl text-semibold">TO-DO LIST</div>
@@ -26,10 +36,10 @@ function App() {
           </div>
         </div>
         {/* end of buttons */}
-        <AddTask />
+        <AddTask addNewTask={AddNewTask}/>
         <div className="bg-slate-300 w-full rounded-lg mt-4 px-8 py-6">
           {tasks.map((task) => (
-          <ListItem key={task.id} task={task}/>
+            <ListItem key={task.id} task={task} />
           ))}
         </div>
         {/* end list */}
