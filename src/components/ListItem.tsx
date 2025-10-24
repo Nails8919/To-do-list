@@ -8,9 +8,9 @@ interface Task {
 const ListItem = ({ task }: { task: Task }) => {
     return (
         <div className="bg-white my-4 p-4 rounded-lg flex justify-between">
-            <div className="flex h-full w-full gap-1">
-                <button className="rounded-lg cursor-pointer bg-gray-300 h-10 w-10 relative top-1.5" title="Mark as complete">
-                    <i className="fa-solid fa-square text-gray-300 text-4xl"></i>
+            <div className="flex">
+                <button className="cursor-pointer" title="Mark as complete">
+                    <i className="fa-solid fa-square text-5xl text-gray-300 hover:text-gray-400 hover:animate-pulse"></i>
                 </button>
                 <div className="flex flex-col ms-2">
                     <span className="font-bold text-xl">
