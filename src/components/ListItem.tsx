@@ -23,7 +23,7 @@ const ListItem = ({ task, deleteTask, toggleComplete }) => {
             <div className="flex h-10 w-25 justify-between">
                 <DeleteButton taskId={task.id} deleteTask={deleteTask} />
                 <Edit />
-                
+
             </div>
         </div>
     )
