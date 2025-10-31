@@ -1,5 +1,6 @@
 import { format } from "date-and-time"
 import DeleteButton from "./DeleteButton";
+import Edit from "./Edit";
 
 interface Task {
     task: string;
@@ -22,9 +23,7 @@ const ListItem = ({ task }: { task: Task }) => {
             </div>
             <div className="flex h-10 w-25 justify-between">
                 <DeleteButton taskId={task.id} />
-                <button className="rounded-lg cursor-pointer bg-gray-300 h-10 w-10 hover:bg-gray-400" title="Edit task">
-                    <i className="fa-solid fa-pen text-2xl rounded-lg pt-1 px-1 pb-1 py-1 cursor-pointer"></i>
-                </button>
+                <Edit />
             </div>
         </div>
     )
