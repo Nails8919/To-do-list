@@ -12,7 +12,7 @@ function App() {
   console.log(tasks)
   const AddNewTask = (taskDetails: string) => {
     const newTask = {
-      id: tasks.length + 1,
+      id: tasks.length ? tasks[tasks.length - 1].id + 1 : 1,
       task: taskDetails,
       completed: false,
       createdOn: new Date()
