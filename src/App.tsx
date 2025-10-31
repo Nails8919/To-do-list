@@ -9,7 +9,8 @@ function App() {
     completed: false,
     createdOn: new Date()
   }])
-  console.log(tasks)
+
+  // console.log(tasks)
   const AddNewTask = (taskDetails: string) => {
     const newTask = {
       id: tasks.length ? tasks[tasks.length - 1].id + 1 : 1,
@@ -18,6 +19,23 @@ function App() {
       createdOn: new Date()
     }
     setTasks([...tasks, newTask])
+  }
+
+  const deleteTask = (taskId: number) => {
+    const updatedTasks = tasks.filter((task) => {
+      return task.id !== taskId
+    })
+    setTasks(updatedTasks)
+  }
+
+  const toggleComplete = (taskId: number) => {
+    const updatedTasks = tasks.map((task) => {
+      if (task.id === taskId) {
+        return { ...task, completed: !task.completed }
+      }
+      return task
+    })
+    setTasks(updatedTasks)
   }
 
   return (
@@ -29,7 +47,7 @@ function App() {
             <button title="Add a new task" className="bg-blue-900 p-2 rounded-lg text-white hover:bg-red-600 cursor-pointer hover:animate-pulse">Add Task</button></div>
           <div>
             <select title="Choose Option" name="Filter" id="FilterList" className="p-2 border-2 rounded-lg bg-gray-400 hover:bg-gray-400 cursor-pointer">
-              <option selected value="All">All</option>
+              <option defaultValue="All">All</option>
               <option value="Completed">Completed</option>
               <option value="Uncompleted">Uncompleted</option>
             </select>
@@ -39,12 +57,14 @@ function App() {
         <AddTask addNewTask={AddNewTask} />
         <div className="bg-slate-200 w-full rounded-lg mt-4 px-8 py-6">
           {tasks.map((task) => (
-            <ListItem key={task.id} task={task} />
+            <ListItem key={task.id} task={task}
+              deleteTask={deleteTask} toggleComplete={toggleComplete} />
           ))}
         </div>
         {/* end list */}
       </div>
     </div>
+
 
   )
 }

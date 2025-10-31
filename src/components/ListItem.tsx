@@ -1,19 +1,18 @@
 import { format } from "date-and-time"
 import DeleteButton from "./DeleteButton";
 import Edit from "./Edit";
+import Task_Status from "./Task_Status";
 
-interface Task {
-    task: string;
-    createdOn: Date;
-}
+// interface Task {
+//     task: string;
+//     createdOn: Date;
+// }
 
-const ListItem = ({ task }: { task: Task }) => {
+const ListItem = ({ task, deleteTask, toggleComplete }) => {
     return (
         <div className="bg-white my-4 p-4 rounded-lg flex justify-between">
             <div className="flex">
-                <button className="cursor-pointer" title="Mark as complete">
-                    <i className="fa-solid fa-square text-5xl text-gray-300 hover:text-gray-400 hover:animate-pulse"></i>
-                </button>
+                <Task_Status task={task} toggleComplete={toggleComplete} />
                 <div className="flex flex-col ms-2">
                     <span className="font-bold text-xl">
                         {task.task}
@@ -22,8 +21,9 @@ const ListItem = ({ task }: { task: Task }) => {
                 </div>
             </div>
             <div className="flex h-10 w-25 justify-between">
-                <DeleteButton taskId={task.id} />
+                <DeleteButton taskId={task.id} deleteTask={deleteTask} />
                 <Edit />
+                
             </div>
         </div>
     )
