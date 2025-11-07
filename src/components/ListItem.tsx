@@ -8,7 +8,8 @@ import Task_Status from "./Task_Status";
 //     createdOn: Date;
 // }
 
-const ListItem = ({ task, deleteTask, toggleComplete }) => {
+const ListItem = ({ task, deleteTask, toggleComplete, setTasktoEdit }) => {
+
     return (
         <div className="bg-white my-4 p-4 rounded-lg flex justify-between">
             <div className="flex">
@@ -22,7 +23,7 @@ const ListItem = ({ task, deleteTask, toggleComplete }) => {
             </div>
             <div className="flex h-10 w-25 justify-between">
                 <DeleteButton taskId={task.id} deleteTask={deleteTask} />
-                <Edit />
+                <Edit taskId={task.id} taskDescription={task.task} setTasktoEdit={setTasktoEdit} />
 
             </div>
         </div>
