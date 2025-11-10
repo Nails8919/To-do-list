@@ -1,6 +1,6 @@
 import React from 'react'
 
-const EditTask = ({tasktoEdit,updateTask, setTasktoEdit}) => {
+const EditTask = ({tasktoEdit,updateTask, setTasktoEdit, showEditTaskComponent }) => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         updateTask(tasktoEdit.id, tasktoEdit.task);
@@ -16,7 +16,7 @@ const handleChange=(e:React.FormEvent)=>{
 
 
     return (
-        <div className="w-full mt-4">
+        <div className={"w-full mt-4 + (showEditTaskComponent ? '' : 'hidden')} >"}>
         <form>
             <div className="mb-4 flex flex-col gap-2 ">
                 <label htmlFor="task" className="text-md font-medium text-black">Task</label>

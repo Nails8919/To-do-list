@@ -1,5 +1,5 @@
 
-const AddTask = ({ addNewTask }: { addNewTask: (task: string) => void }) => {
+const AddTask = ({ addNewTask, showAddTaskComponent }: { addNewTask: (task: string) => void, showAddTaskComponent: boolean }) => {
     const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
         if (!e.currentTarget.form || !e.currentTarget.form.task.value)
@@ -9,7 +9,7 @@ const AddTask = ({ addNewTask }: { addNewTask: (task: string) => void }) => {
     }
 
     return (
-        <div className="w-full mt-4">
+        <div className={`w-full mt-4 + ${showAddTaskComponent ? '' : 'hidden'} >`}>
             <form>
                 <div className="mb-4 flex flex-col gap-2 ">
                     <label htmlFor="task" className="text-md font-medium text-black">Task</label>

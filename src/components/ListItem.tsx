@@ -8,7 +8,7 @@ import Task_Status from "./Task_Status";
 //     createdOn: Date;
 // }
 
-const ListItem = ({ task, deleteTask, toggleComplete, setTasktoEdit }) => {
+const ListItem = ({ task, deleteTask, toggleComplete, setTasktoEdit, updatedTasks, showEditTaskComponent }) => {
 
     return (
         <div className="bg-white my-4 p-4 rounded-lg flex justify-between">
